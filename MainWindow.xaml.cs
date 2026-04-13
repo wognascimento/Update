@@ -41,6 +41,16 @@ namespace Update
 
                 if (sucesso)
                 {
+
+                    // Encontra todos os processos com o nome "notepad"
+                    Process[] processos = Process.GetProcessesByName(AplicacaoPrincipal);
+
+                    foreach (Process p in processos)
+                    {
+                        p.Kill(); // Encerra o processo imediatamente
+                        p.WaitForExit(); // Garante que ele fechou antes de continuar
+                    }
+
                     var progressHandlerExtraction = new Progress<double>(valor =>
                     {
                         progressExtraction.Value = valor;
