@@ -43,7 +43,7 @@ namespace Update
                 {
 
                     // Encontra todos os processos com o nome "notepad"
-                    Process[] processos = Process.GetProcessesByName(AplicacaoPrincipal);
+                    Process[] processos = Process.GetProcessesByName(AplicacaoPrincipal.Replace(".exe", ""));
 
                     foreach (Process p in processos)
                     {
